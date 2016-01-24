@@ -1,0 +1,16 @@
+gmath_real_type (Val)) 0	      \
+				    + _Complex_I)) __tgml(Cfct) (Val)))
+
+/* XXX This definition has to be changed as soon as the compiler understands
+   the imaginary keyword.  */
+# define __TGMATH_UNARY_REAL_IMAG_RET_REAL(Val, Fct, Cfct) \
+     (__extension__ ((sizeof (__real__ (Val)) == sizeof (double)	      \
+		      || __builtin_classify_type (__real__ (Val)) != 8)	      \
+		     ? ((sizeof (__real__ (Val)) == sizeof (Val))	      \
+			? (__typeof__ (__real__ (__tgmath_real_type (Val)) 0))\
+			  Fct (Val)					      \
+			: (__typeof__ (__real__ (__tgmath_real_type (Val)) 0))\
+			  Cfct (Val))					      \
+		     : (sizeof (__real__ (Val)) == sizeof (float))	      \
+		     ? ((sizeof (__real__ (Val)) == sizeof (Val))	      \
+			? (__typeo

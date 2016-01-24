@@ -1,0 +1,20 @@
+ dynamic loading of these - for now,
+ * they're just being used to share the ATMIOC_BACKEND ioctls
+ */
+#define ATM_BACKEND_RAW		0	
+#define ATM_BACKEND_PPP		1	/* PPPoATM - RFC2364 */
+#define ATM_BACKEND_BR2684	2	/* Bridged RFC1483/2684 */
+
+/* for ATM_GETTYPE */
+#define ATM_ITFTYP_LEN	8	/* maximum length of interface type name */
+
+/*
+ * Loopback modes for ATM_{PHY,SAR}_{GET,SET}LOOP
+ */
+
+/* Point of loopback				CPU-->SAR-->PHY-->line--> ... */
+#define __ATM_LM_NONE	0	/* no loop back     ^     ^     ^      ^      */
+#define __ATM_LM_AAL	1	/* loop back PDUs --'     |     |      |      */
+#define __ATM_LM_ATM	2	/* loop back ATM cells ---'     |      |      */
+/* RESERVED		4	loop back on PHY side  ---'		      */
+#define __ATM_LM_PHY	8	/* loop back b
